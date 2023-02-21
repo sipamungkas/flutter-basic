@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,26 +34,68 @@ class SnackbarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-          child: Container(
-            height: 200,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+        body: Container(
+            width: 200,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(10),
+                  bottomLeft: Radius.circular(10)),
               color: Colors.blueAccent,
             ),
-            width: 200,
-            child: const Center(
-              child: Text(
-                'hello flutter',
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.amber,
-                  fontWeight: FontWeight.w500,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    const Expanded(
+                      flex: 3,
+                      child: Text(
+                        'first row- first row - first row - first row - first row - first row - first row',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    const Expanded(
+                      flex: 1,
+                      child: Text(
+                        'Second',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Container(
+                      color: Colors.amber,
+                      width: 20,
+                      height: 20,
+                    ),
+                    Container(
+                      color: Colors.purple,
+                      width: 20,
+                      height: 20,
+                    ),
+                    Container(
+                      color: Colors.amberAccent,
+                      width: 20,
+                      height: 20,
+                    )
+                  ],
                 ),
-              ),
-            ),
-          ),
-        ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Container(
+                  color: Colors.green,
+                  child: const Text('first Column'),
+                ),
+                const SizedBox(height: 50),
+                Container(
+                  color: Colors.purple,
+                  child: const Text('Second Column'),
+                )
+              ],
+            )),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             const snackBar = SnackBar(content: Text('tes'));
