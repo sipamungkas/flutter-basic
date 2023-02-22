@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,96 +10,54 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Basic',
-        theme: ThemeData(
-            appBarTheme: const AppBarTheme(backgroundColor: Colors.amber)),
+        title: 'Question List',
         home: Scaffold(
           appBar: AppBar(
-            title: const Text('Flutter Title'),
-            centerTitle: true,
+            title: const Text('Flutter Question Task'),
           ),
-          body: const SnackbarWidget(),
+          body: const Padding(
+            padding: EdgeInsets.all(16.0),
+            child: QuestionItem(
+              question: 'Where is your home?',
+              category: 'address',
+            ),
+          ),
         ));
   }
 }
 
-class SnackbarWidget extends StatelessWidget {
-  const SnackbarWidget({
-    super.key,
-  });
+class QuestionItem extends StatelessWidget {
+  final String question;
+  final String category;
+
+  const QuestionItem(
+      {super.key, required this.question, required this.category});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-            width: 200,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(10),
-                  bottomLeft: Radius.circular(10)),
-              color: Colors.blueAccent,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          question,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+        ),
+        const SizedBox(height: 8),
+        Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25), color: Colors.grey),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              category,
+              style: const TextStyle(
+                  fontSize: 12, color: Color.fromARGB(255, 255, 255, 255)),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    const Expanded(
-                      flex: 3,
-                      child: Text(
-                        'first row- first row - first row - first row - first row - first row - first row',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    const Expanded(
-                      flex: 1,
-                      child: Text(
-                        'Second',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    Container(
-                      color: Colors.amber,
-                      width: 20,
-                      height: 20,
-                    ),
-                    Container(
-                      color: Colors.purple,
-                      width: 20,
-                      height: 20,
-                    ),
-                    Container(
-                      color: Colors.amberAccent,
-                      width: 20,
-                      height: 20,
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Container(
-                  color: Colors.green,
-                  child: const Text('first Column'),
-                ),
-                const SizedBox(height: 50),
-                Container(
-                  color: Colors.purple,
-                  child: const Text('Second Column'),
-                )
-              ],
-            )),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            const snackBar = SnackBar(content: Text('tes'));
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          },
-          child: const Icon(Icons.new_label_rounded),
-        ));
+          ),
+        )
+      ],
+    );
   }
 }
