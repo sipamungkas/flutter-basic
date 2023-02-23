@@ -25,69 +25,26 @@ class MyApp extends StatelessWidget {
                             'What is Graphic card produced by this vendor?',
                         category: 'graphic card',
                         image: 'assets/images/rtx.jpg'),
-                    const SizedBox(height: 8),
-                    const QuestionItem(
-                        question:
-                            'What is Graphic card produced by this vendor?',
-                        category: 'graphic card',
-                        image: 'assets/images/rtx.jpg'),
-                    const SizedBox(height: 8),
-                    const QuestionItem(
-                        question:
-                            'What is Graphic card produced by this vendor?',
-                        category: 'graphic card',
-                        image: 'assets/images/rtx.jpg'),
-                    const SizedBox(height: 8),
-                    const QuestionItem(
-                        question:
-                            'What is Graphic card produced by this vendor?',
-                        category: 'graphic card',
-                        image: 'assets/images/rtx.jpg'),
-                    const SizedBox(height: 8),
-                    const QuestionItem(
-                        question:
-                            'What is Graphic card produced by this vendor?',
-                        category: 'graphic card',
-                        image: 'assets/images/rtx.jpg'),
-                    const SizedBox(height: 8),
-                    const QuestionItem(
-                        question:
-                            'What is Graphic card produced by this vendor?',
-                        category: 'graphic card',
-                        image: 'assets/images/rtx.jpg'),
-                    const SizedBox(height: 8),
-                    const QuestionItem(
-                        question:
-                            'What is Graphic card produced by this vendor?',
-                        category: 'graphic card',
-                        image: 'assets/images/rtx.jpg'),
-                    const SizedBox(height: 8),
-                    const QuestionItem(
-                        question:
-                            'What is Graphic card produced by this vendor?',
-                        category: 'graphic card',
-                        image: 'assets/images/rtx.jpg'),
-                    const SizedBox(height: 8),
-                    const QuestionItem(
-                        question:
-                            'What is Graphic card produced by this vendor?',
-                        category: 'graphic card',
-                        image: 'assets/images/rtx.jpg'),
                     const SizedBox(height: 60),
-                    const MeduaQueryWidgetExample(),
+                    Container(
+                      height: 300,
+                      width: 300,
+                      color: Colors.blueAccent,
+                      child: LayoutBuilder(builder: (context, constrains) {
+                        return Center(
+                          child: Container(
+                            color: Colors.amber,
+                            width: constrains.maxWidth * 0.8,
+                            height: constrains.maxHeight / 2,
+                            child: const Text('This is the text'),
+                          ),
+                        );
+                      }),
+                    ),
                     const SizedBox(
                       height: 8,
                     ),
-                    Builder(builder: (context) {
-                      return Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 100,
-                        color: Colors.green,
-                        alignment: Alignment.center,
-                        child: const Text(
-                            'Media Query in widget, we can not use it without builder, so wrap it with builder'),
-                      );
-                    })
+                    const MeduaQueryWidgetExample(),
                   ],
                 ),
               )),
