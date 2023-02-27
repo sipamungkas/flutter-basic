@@ -1,3 +1,4 @@
+import 'package:basic/presentation/components/custom_button.dart';
 import 'package:basic/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:flutter/material.dart';
 import 'package:basic/presentation/widget_examples/widgets/question_item_widget.dart';
@@ -17,7 +18,13 @@ class BodyWidget extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            ButtonsExample(),
+            CustomButton(
+                onTap: () {
+                  print('custom button print');
+                },
+                icon: Icons.home,
+                iconColor: Colors.white),
+            const ButtonsExample(),
             Expanded(
                 child: ListView.separated(
                     scrollDirection:
