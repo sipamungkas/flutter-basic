@@ -24,6 +24,12 @@ class BodyWidget extends StatelessWidget {
                 },
                 icon: Icons.home,
                 iconColor: Colors.white),
+            CustomButtonGesture(
+              onTap: () {
+                print('custom button gesture');
+              },
+              text: 'Gesture Button',
+            ),
             const ButtonsExample(),
             Expanded(
                 child: ListView.separated(
