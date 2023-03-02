@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ButtonsExample extends StatelessWidget {
+class ButtonsExample extends StatefulWidget {
   const ButtonsExample({super.key});
+
+  @override
+  State<ButtonsExample> createState() => _ButtonsExampleState();
+}
+
+class _ButtonsExampleState extends State<ButtonsExample> {
+  bool switchState = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +42,16 @@ class ButtonsExample extends StatelessWidget {
             onPressed: () => debugPrint('icon on press'),
             icon: const Icon(Icons.plumbing)),
         Switch(
-            value: true,
+            value: switchState,
             onChanged: (value) {
-              debugPrint(value.toString());
+              setState(() {
+                if (true) {
+                  switchState = false;
+                } else {
+                  switchState = value;
+                }
+              });
+              print(value);
             })
       ],
     );

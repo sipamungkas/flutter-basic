@@ -1,3 +1,4 @@
+import 'package:basic/presentation/counter/counter_screen.dart';
 import 'package:basic/presentation/widget_examples/widget_examples_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -59,9 +60,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Question List',
-        home: WidgetExamplesScreen(
-          questionList: questionList,
-        ));
+      theme: ThemeData(
+          appBarTheme: const AppBarTheme(backgroundColor: Colors.amber)),
+      title: 'Question List',
+      // home: WidgetExamplesScreen(
+      //   questionList: questionList,
+      // )
+      home: const CounterScreen(),
+    );
   }
 }
