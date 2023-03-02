@@ -2,11 +2,60 @@ import 'package:flutter/material.dart';
 import 'package:basic/presentation/widget_examples/widgets/body_widget.dart';
 
 class WidgetExamplesScreen extends StatelessWidget {
-  final List<Map> questionList;
-  const WidgetExamplesScreen({super.key, required this.questionList});
+  const WidgetExamplesScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final List<Map> questionList = [
+      {
+        'category': 'Science',
+        'image': 'assets/images/rtx.jpg',
+        'question': 'What is the Brand for that feature?',
+      },
+      {
+        'category': 'Tech',
+        'image': 'assets/images/rtx.jpg',
+        'question': 'What is the Brand for that feature?',
+      },
+      {
+        'category': 'Tech',
+        'image': 'assets/images/rtx.jpg',
+        'question': 'What is the Brand for that feature?',
+      },
+      {
+        'category': 'Tech',
+        'image': 'assets/images/rtx.jpg',
+        'question': 'What is the Brand for that feature?',
+      },
+      {
+        'category': 'Tech',
+        'image': 'assets/images/rtx.jpg',
+        'question': 'What is the Brand for that feature?',
+      },
+      {
+        'category': 'Tech',
+        'image': 'assets/images/rtx.jpg',
+        'question': 'What is the Brand for that feature?',
+      },
+      {
+        'category': 'Tech',
+        'image': 'assets/images/rtx.jpg',
+        'question': 'What is the Brand for that feature?',
+      },
+      {
+        'category': 'Tech',
+        'image': 'assets/images/rtx.jpg',
+        'question': 'What is the Brand for that feature?',
+      },
+      {
+        'category': 'Tech',
+        'image': 'assets/images/rtx.jpg',
+        'question': 'What is the Brand for that feature?',
+      },
+    ];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Question Task'),

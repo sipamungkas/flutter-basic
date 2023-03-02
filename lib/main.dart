@@ -1,62 +1,12 @@
-import 'package:basic/presentation/counter/counter_screen.dart';
-import 'package:basic/presentation/list/list_screen.dart';
-import 'package:basic/presentation/widget_examples/widget_examples_screen.dart';
+import 'package:basic/root_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
-  final List<Map> questionList = [
-    {
-      'category': 'Science',
-      'image': 'assets/images/rtx.jpg',
-      'question': 'What is the Brand for that feature?',
-    },
-    {
-      'category': 'Tech',
-      'image': 'assets/images/rtx.jpg',
-      'question': 'What is the Brand for that feature?',
-    },
-    {
-      'category': 'Tech',
-      'image': 'assets/images/rtx.jpg',
-      'question': 'What is the Brand for that feature?',
-    },
-    {
-      'category': 'Tech',
-      'image': 'assets/images/rtx.jpg',
-      'question': 'What is the Brand for that feature?',
-    },
-    {
-      'category': 'Tech',
-      'image': 'assets/images/rtx.jpg',
-      'question': 'What is the Brand for that feature?',
-    },
-    {
-      'category': 'Tech',
-      'image': 'assets/images/rtx.jpg',
-      'question': 'What is the Brand for that feature?',
-    },
-    {
-      'category': 'Tech',
-      'image': 'assets/images/rtx.jpg',
-      'question': 'What is the Brand for that feature?',
-    },
-    {
-      'category': 'Tech',
-      'image': 'assets/images/rtx.jpg',
-      'question': 'What is the Brand for that feature?',
-    },
-    {
-      'category': 'Tech',
-      'image': 'assets/images/rtx.jpg',
-      'question': 'What is the Brand for that feature?',
-    },
-  ];
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +17,7 @@ class MyApp extends StatelessWidget {
       // home: WidgetExamplesScreen(
       //   questionList: questionList,
       // )
-      home: const ListScreen(),
+      home: const RootBottomNavigation(),
     );
   }
 }
