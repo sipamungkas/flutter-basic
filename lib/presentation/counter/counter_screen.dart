@@ -30,6 +30,7 @@ class _CounterScreenState extends State<CounterScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             FloatingActionButton(
+              heroTag: 'fab1',
               onPressed: () {
                 setState(() {
                   if (_counter > 0) _counter = _counter - 1;
@@ -39,6 +40,7 @@ class _CounterScreenState extends State<CounterScreen> {
               child: const Icon(Icons.remove),
             ),
             FloatingActionButton(
+              heroTag: 'fab2',
               onPressed: () {
                 setState(() {
                   _counter += 1;

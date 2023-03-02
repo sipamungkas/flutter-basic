@@ -1,4 +1,6 @@
 import 'package:basic/presentation/components/custom_button.dart';
+import 'package:basic/presentation/navigation_example_screens/screen_one.dart';
+import 'package:basic/presentation/navigation_example_screens/screen_two.dart';
 import 'package:basic/presentation/widget_examples/widgets/buttons_example.dart';
 import 'package:flutter/material.dart';
 import 'package:basic/presentation/widget_examples/widgets/question_item_widget.dart';
@@ -18,19 +20,32 @@ class BodyWidget extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            CustomButton(
-                onTap: () {
-                  print('custom button print');
-                },
-                icon: Icons.home,
-                iconColor: Colors.white),
-            CustomButtonGesture(
-              onTap: () {
-                print('custom button gesture');
-              },
-              text: 'Gesture Button',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomButton(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ScreenOne()));
+                    },
+                    icon: Icons.home,
+                    iconColor: Colors.white),
+                CustomButton(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ScreenTwo()));
+                    },
+                    icon: Icons.density_medium,
+                    iconColor: Colors.white),
+              ],
             ),
-            const ButtonsExample(),
+            const SizedBox(
+              height: 20,
+            ),
             Expanded(
                 child: ListView.separated(
                     scrollDirection:
