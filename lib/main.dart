@@ -1,4 +1,5 @@
 import 'package:basic/presentation/counter/counter_screen.dart';
+import 'package:basic/presentation/list/list_screen.dart';
 import 'package:basic/presentation/widget_examples/widget_examples_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -66,7 +67,7 @@ class MyApp extends StatelessWidget {
       // home: WidgetExamplesScreen(
       //   questionList: questionList,
       // )
-      home: const CounterScreen(),
+      home: const ListScreen(),
     );
   }
 }
