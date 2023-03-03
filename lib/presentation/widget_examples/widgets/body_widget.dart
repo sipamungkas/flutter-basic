@@ -25,19 +25,13 @@ class BodyWidget extends StatelessWidget {
               children: [
                 CustomButton(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ScreenOne()));
+                      Navigator.pushNamed(context, '/ScreenOne');
                     },
                     icon: Icons.home,
                     iconColor: Colors.white),
                 CustomButton(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ScreenTwo()));
+                      Navigator.pushNamed(context, '/ScreenTwo');
                     },
                     icon: Icons.density_medium,
                     iconColor: Colors.white),
