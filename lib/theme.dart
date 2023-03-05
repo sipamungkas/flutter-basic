@@ -8,14 +8,10 @@ class AppTheme {
   static const _primaryColorDark = Colors.lightGreen;
 
   static final ThemeData lightTheme = ThemeData(
-      useMaterial3: true,
       appBarTheme: const AppBarTheme(backgroundColor: _primaryColorLight),
-      colorScheme: ColorScheme.fromSeed(
-          seedColor: _primaryColorLight, brightness: Brightness.light));
+      colorScheme: ColorScheme.fromSeed(seedColor: _primaryColorLight));
 
   static final ThemeData darkTheme = ThemeData(
-      useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
-        seedColor: _primaryColorDark,
-      ));
+          seedColor: _primaryColorDark, brightness: Brightness.dark));
 }

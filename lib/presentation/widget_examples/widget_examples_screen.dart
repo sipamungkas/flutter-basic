@@ -1,5 +1,7 @@
+import 'package:basic/application/theme_service.dart';
 import 'package:flutter/material.dart';
 import 'package:basic/presentation/widget_examples/widgets/body_widget.dart';
+import 'package:provider/provider.dart';
 
 class WidgetExamplesScreen extends StatelessWidget {
   const WidgetExamplesScreen({
@@ -57,16 +59,15 @@ class WidgetExamplesScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter Question Task'),
-      ),
-      body: BodyWidget(questionList: questionList),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          debugPrint('tes');
-        },
-        child: const Icon(Icons.new_label),
-      ),
-    );
+        appBar: AppBar(
+          title: const Text('Flutter Question Task'),
+        ),
+        body: BodyWidget(questionList: questionList),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Provider.of<ThemeService>(context, listen: false).toggleTheme();
+          },
+          child: const Icon(Icons.new_label),
+        ));
   }
 }
