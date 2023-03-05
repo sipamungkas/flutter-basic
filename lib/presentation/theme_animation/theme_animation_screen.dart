@@ -1,4 +1,8 @@
 import 'package:basic/application/theme_service.dart';
+import 'package:basic/presentation/theme_animation/widgets/animated_star.dart';
+import 'package:basic/presentation/theme_animation/widgets/bottom_card.dart';
+import 'package:basic/presentation/theme_animation/widgets/moon.dart';
+import 'package:basic/presentation/theme_animation/widgets/sun.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -45,50 +49,51 @@ class ThemeAnimationScreen extends StatelessWidget {
                         begin: Alignment.bottomCenter,
                         end: Alignment.topCenter)),
                 child: Stack(children: [
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Container(
-                      height: 225,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: themeService.isDarkModeOn
-                              ? Colors.grey[800]
-                              : Colors.white,
-                          borderRadius: const BorderRadius.vertical(
-                              bottom: Radius.circular(15))),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              themeService.isDarkModeOn
-                                  ? 'To Dark?'
-                                  : 'To Bright?',
-                              style: const TextStyle(
-                                  fontSize: 21, fontWeight: FontWeight.w700),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            Text(
-                              themeService.isDarkModeOn
-                                  ? 'let the sun rise'
-                                  : 'let it be night',
-                              style: const TextStyle(
-                                  fontSize: 18, fontStyle: FontStyle.italic),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(
-                              height: 30,
-                            ),
-                            Switch(
-                                value: themeService.isDarkModeOn,
-                                onChanged: (_) {
-                                  themeService.toggleTheme();
-                                })
-                          ]),
+                  AnimatedStar(
+                    opacity: themeService.isDarkModeOn ? 1 : 0,
+                    top: 150,
+                    right: 50,
+                  ),
+                  AnimatedStar(
+                    opacity: themeService.isDarkModeOn ? 1 : 0,
+                    top: 80,
+                    left: 60,
+                  ),
+                  AnimatedStar(
+                    opacity: themeService.isDarkModeOn ? 1 : 0,
+                    top: 150,
+                    left: 50,
+                  ),
+                  AnimatedStar(
+                    opacity: themeService.isDarkModeOn ? 1 : 0,
+                    top: 50,
+                    right: 100,
+                  ),
+                  AnimatedStar(
+                    opacity: themeService.isDarkModeOn ? 1 : 0,
+                    top: 100,
+                    right: 200,
+                  ),
+                  AnimatedPositioned(
+                    duration: const Duration(milliseconds: 500),
+                    top: themeService.isDarkModeOn ? 100 : 130,
+                    right: themeService.isDarkModeOn ? 100 : -50,
+                    curve: Curves.decelerate,
+                    child: AnimatedOpacity(
+                      opacity: themeService.isDarkModeOn ? 1 : 0,
+                      duration: const Duration(milliseconds: 300),
+                      child: const Moon(),
                     ),
-                  )
+                  ),
+                  AnimatedPadding(
+                    duration: const Duration(milliseconds: 200),
+                    padding: EdgeInsets.only(
+                        top: themeService.isDarkModeOn ? 110 : 50),
+                    child: const Center(child: Sun()),
+                  ),
+                  BottomCard(
+                      isDarkModeOn: themeService.isDarkModeOn,
+                      toggleTheme: themeService.toggleTheme)
                 ]),
               ),
             ),
