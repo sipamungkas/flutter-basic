@@ -3,6 +3,7 @@
 ## Contents
 
 - [Description](#description)
+- [Download](#download)
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
