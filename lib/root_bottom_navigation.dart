@@ -1,8 +1,10 @@
+import 'package:basic/application/theme_service.dart';
 import 'package:basic/presentation/counter/counter_screen.dart';
 import 'package:basic/presentation/list/list_screen.dart';
 import 'package:basic/presentation/theme_animation/theme_animation_screen.dart';
 import 'package:basic/presentation/widget_examples/widget_examples_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RootBottomNavigation extends StatefulWidget {
   const RootBottomNavigation({super.key});
@@ -18,12 +20,13 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(index: currentIndex, children: const [
-        WidgetExamplesScreen(),
+        ThemeAnimationScreen(),
         CounterScreen(),
         ListScreen(),
-        ThemeAnimationScreen()
+        WidgetExamplesScreen(),
       ]),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: Consumer<ThemeService>(
+        builder: (context, themeService, child) => BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           backgroundColor: Theme.of(context).colorScheme.primaryContainer,
           onTap: (index) {
@@ -34,19 +37,24 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
           selectedFontSize: 12,
           selectedItemColor: Theme.of(context).colorScheme.primary,
           currentIndex: currentIndex,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+                icon: Icon(
+                    themeService.isDarkModeOn ? Icons.wb_cloudy : Icons.sunny),
+                label: 'Sun & Moon'),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.star),
               label: 'Examples',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.numbers),
               label: 'Counter',
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.list), label: 'List'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.color_lens), label: 'Sun & Moon'),
-          ]),
+            const BottomNavigationBarItem(
+                icon: Icon(Icons.list), label: 'List'),
+          ],
+        ),
+      ),
     );
   }
 }
