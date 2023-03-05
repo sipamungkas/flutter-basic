@@ -22,13 +22,14 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
         ListScreen()
       ]),
       bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
           onTap: (index) {
             setState(() {
               currentIndex = index;
             });
           },
           selectedFontSize: 12,
-          selectedItemColor: Colors.amber,
+          selectedItemColor: Theme.of(context).colorScheme.primary,
           currentIndex: currentIndex,
           items: const [
             BottomNavigationBarItem(
