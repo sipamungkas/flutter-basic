@@ -21,7 +21,7 @@
 
 ### choose apk for your device
 
-### [Click Here to Download](https://github.com/sipamungkas/flutter-basic/releases/tag/v.1.0.0)
+### [Click Here to Download](https://github.com/sipamungkas/flutter-basic/releases)
 
 ---
 
