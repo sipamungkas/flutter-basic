@@ -21,9 +21,9 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
     return Scaffold(
       body: IndexedStack(index: currentIndex, children: const [
         ThemeAnimationScreen(),
+        WidgetExamplesScreen(),
         CounterScreen(),
         ListScreen(),
-        WidgetExamplesScreen(),
       ]),
       bottomNavigationBar: Consumer<ThemeService>(
         builder: (context, themeService, child) => BottomNavigationBar(
